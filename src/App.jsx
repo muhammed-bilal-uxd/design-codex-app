@@ -219,9 +219,9 @@ export default function DesignXStudentLanding() {
               <h2 className="text-3xl md:text-4xl font-bold">Simple, student‑friendly pricing</h2>
               <p className="mt-3 text-white/80 max-w-prose">Pay once and save, or split into easy EMIs. Scholarships available for women returning to work and need‑based applicants.</p>
 
-              <div className="mt-6 inline-flex rounded-xl border border-white/15 p-1">
-                <button onClick={() => setPricePlan("full")} className={`px-4 py-2 rounded-lg text-sm ${pricePlan === "full" ? "bg-white text-neutral-900" : "text-white/80 hover:text-white"}`}>Full Pay</button>
-                <button onClick={() => setPricePlan("emi")} className={`px-4 py-2 rounded-lg text-sm ${pricePlan === "emi" ? "bg-white text-neutral-900" : "text-white/80 hover:text-white"}`}>EMI</button>
+              <div className="mt-6 inline-flex rounded-xl border border-white/15 p-1 gap-2">
+                <button onClick={() => setPricePlan("full")} className={`px-4 py-2 rounded-lg text-sm bg-white ${pricePlan === "full" ? "[color:#747bff]" : "text-neutral-900"}`}>Full Pay</button>
+                <button onClick={() => setPricePlan("emi")} className={`px-4 py-2 rounded-lg text-sm bg-white ${pricePlan === "emi" ? "[color:#747bff]" : "text-neutral-900"}`}>EMI</button>
               </div>
 
               <div className="mt-4 rounded-2xl border border-white/10 bg-neutral-900 p-6">
@@ -260,7 +260,7 @@ export default function DesignXStudentLanding() {
                   <option>Weekend (10 AM–12 PM IST)</option>
                 </select>
                 <textarea placeholder="Tell us why you’re joining (optional)" className="w-full rounded-xl bg-neutral-800 border border-white/10 px-4 py-3 text-sm h-28 outline-none focus:ring-2 focus:ring-white/20" />
-                <button type="submit" className="rounded-2xl bg-white text-neutral-900 px-6 py-3 font-semibold hover:bg-white/90">Submit application</button>
+                <button type="submit" className="rounded-2xl bg-white px-6 py-3 font-semibold hover:bg-white/90 [color:#747bff]">Submit application</button>
                 <p className="text-xs text-white/60">By submitting, you agree to our terms and consent to be contacted via WhatsApp/Email.</p>
               </form>
             </div>
