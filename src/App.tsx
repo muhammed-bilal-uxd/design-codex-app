@@ -1,5 +1,10 @@
 import { useMemo, useState } from "react"
 import CurvedLoop from "./components/CurvedLoop"
+import fintechImg from "./assets/fintech.jpg"
+import healthcareImg from "./assets/healthcare.jpg"
+import ecommerceImg from "./assets/ecommerce.jpg"
+
+const logo = "/logo.jpeg"
 
 // ===== Notes =====
 // • Drop this file into any Vite/Next/CRA project with Tailwind.
@@ -33,7 +38,7 @@ export default function DesignXStudentLanding() {
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/70 bg-neutral-950/90 border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded-xl bg-gradient-to-br from-cyan-400 via-fuchsia-500 to-amber-400" />
+            <img src={logo} className="h-16 w-auto" />
             <span className="font-semibold tracking-tight">DesignX Skool</span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm text-white/80">
@@ -175,12 +180,20 @@ export default function DesignXStudentLanding() {
           <h2 className="text-3xl md:text-4xl font-bold">Show‑stopping portfolio projects</h2>
           <div className="mt-8 grid md:grid-cols-3 gap-6">
             {[
-              { t: "Fintech Mobile App", d: "Onboarding, money transfer, analytics, accessibility checks." },
-              { t: "Healthcare Web App", d: "Appointments, records, HIPAA‑aware flows, empty‑state strategy." },
-              { t: "E‑commerce Revamp", d: "Product discovery, filters, cart‑abandon strategies, conversions." },
-            ].map(({ t, d }) => (
+              { t: "Fintech Mobile App", d: "Onboarding, money transfer, analytics, accessibility checks.",
+                img: fintechImg  
+               },
+              { t: "Healthcare Web App", d: "Appointments, records, HIPAA‑aware flows, empty‑state strategy.",
+                img: healthcareImg
+               },
+              { t: "E‑commerce Revamp", d: "Product discovery, filters, cart‑abandon strategies, conversions.",
+                img: ecommerceImg
+               },
+            ].map(({ t, d, img }) => (
               <div key={t} className="rounded-2xl border border-white/10 bg-neutral-900 p-6">
-                <div className="aspect-[16/10] rounded-xl bg-neutral-800 border border-white/5" />
+                <div className="aspect-[16/10] rounded-xl bg-neutral-800 border border-white/5" >
+                <img src={img} className="w-full h-full [object-fit:cover]" />
+                </div>
                 <h3 className="mt-4 font-semibold">{t}</h3>
                 <p className="text-sm text-white/70 mt-1">{d}</p>
               </div>
