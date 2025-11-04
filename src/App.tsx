@@ -39,7 +39,7 @@ export default function DesignXStudentLanding() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img src={logo} className="h-16 w-auto" />
-            <span className="font-semibold tracking-tight">DesignX Skool</span>
+            {/* <span className="font-semibold tracking-tight">DesignX Skool</span> */}
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm text-white/80">
             <a href="#outcomes" className="hover:text-white">Outcomes</a>
