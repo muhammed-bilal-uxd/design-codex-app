@@ -59,6 +59,12 @@ export default function DesignXStudentLanding() {
       setIsSubmitting(true)
       setSubmitStatus(null)
 
+      const response1 = await fetch(VITE_API_URL+"students", {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+      
       const response = await fetch(VITE_API_URL+"students", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
