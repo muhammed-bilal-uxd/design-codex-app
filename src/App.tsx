@@ -266,16 +266,17 @@ export default function DesignXStudentLanding() {
           <h2 className="text-3xl md:text-4xl font-bold">Mentors who hire designers</h2>
           <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { n: "Suhail Ahmed", r: "Founder, Bizzzup", s: "UX, Design systems, AI" },
-              { n: "Edwin", r: "Co‑founder, Bizzzup", s: "Data, AI, Analytics" },
-              { n: "Guest Mentor", r: "Ex‑FAANG", s: "Product design & leadership" },
-              { n: "Guest Recruiter", r: "Hiring Partner", s: "Interview & portfolio" },
-            ].map(({ n, r, s }) => (
+              { n: "Mohammed Mansoor", r: "Founder of UserX", s: "UX Instructor",x: "30+  Years of experience" },
+              { n: "Suhail Ahmed", r: "Founder of bizzzup | woooys", s: "UX Instructor",x: "10+ Years of experience" },
+              { n: "Mukilan", r: "", s: "UI/UX Designer Instructor | AI Artist",x: "" },
+              { n: "Archana", r: "", s: "Graphic Designer | AI Artist",x: "" },
+              { n: "Shalini", r: "", s: "Graphic Design Instructor",x: "" }
+            ].map(({ n, r, s, x }) => (
               <div key={n} className="rounded-2xl border border-white/10 bg-neutral-900 p-6">
                 <div className="h-28 rounded-xl bg-neutral-800 border border-white/5" />
-                <h3 className="mt-3 font-semibold">{n}</h3>
-                <p className="text-sm text-white/70">{r}</p>
-                <p className="text-xs text-white/60 mt-1">{s}</p>
+                <h3 className="mt-3 font-semibold">{n ? n : ""}</h3>
+                <p className="text-sm text-white/70">{r ? r : ""}</p>
+                <p className="text-xs text-white/60 mt-1">{s ? s : ""}{x ? ', ' + x : ""}</p>
               </div>
             ))}
           </div>
