@@ -497,7 +497,7 @@ export default function DesignXStudentLanding() {
             </div>
             <div>
               <p className="text-white font-semibold">Contact</p>
-              <p className="mt-2 text-white/70">hello@designxskool.com</p>
+              <p className="mt-2 text-white/70">hi@designxskool.com</p>
               <p className="text-white/70">+91‑90030‑20030</p>
             </div>
           </div>
