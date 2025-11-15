@@ -120,8 +120,7 @@ export default function TeamCard() {
                 iconUrl={IconPatternImg}
                 showUserInfo={true}
                 enableTilt={true}
-                enableMobileTilt={false}
-                onContactClick={() => document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' })}
+                enableMobileTilt={true}
               />
             ))
             }
