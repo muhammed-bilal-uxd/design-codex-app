@@ -12,6 +12,7 @@ import instagramImg from "./assets/instagram.png"
 import TeamCard from "./shared-components/TeamCard"
 import AluminiCompany from "./shared-components/AluminiCompany"
 import introVideo from "./assets/video/introduction.mp4"
+import favIcon from "./assets/favicon.ico"
 
 // const VITE_API_URL = import.meta.env.VITE_API_URL
 
