@@ -11,6 +11,7 @@ import ChatGptIcon from "./shared-components/ChatGpt"
 import instagramImg from "./assets/instagram.png"
 import TeamCard from "./shared-components/TeamCard"
 import AluminiCompany from "./shared-components/AluminiCompany"
+import introVideo from "./assets/video/introduction.mp4"
 
 // const VITE_API_URL = import.meta.env.VITE_API_URL
 
@@ -54,15 +55,8 @@ export default function DesignXStudentLanding() {
       : { label: "EMI (3 x)", amount: "₹9,999 / mo", sub: "Instant approval on UPI cards" }
   }, [pricePlan])
 
-  const navigateTo = (id: string, event?: React.MouseEvent<HTMLAnchorElement>) => {
-    event?.preventDefault()
-
-    const element = document.getElementById(id)
-    if (element) {
-      const yOffset = -100 // Scroll to 100px from top
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
-      window.scrollTo({ top: y, behavior: 'smooth' })
-    }
+  const navigateTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -139,7 +133,7 @@ export default function DesignXStudentLanding() {
 
       {/* HERO */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_0%,rgba(111,76,255,0.25),rgba(0,0,0,0))] h-[300px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_0%,rgba(111,76,255,0.25),rgba(0,0,0,0))]" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-12">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
@@ -155,19 +149,25 @@ export default function DesignXStudentLanding() {
                 Learn by building real products with mentors from top studios. Graduate with a standout portfolio, interview prep, and referrals.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <a href="#apply" onClick={(e) => navigateTo('apply', e)} className="inline-flex justify-center items-center rounded-2xl bg-white text-neutral-900 px-6 py-3 font-semibold shadow-lg shadow-white/10 hover:bg-white/90">Start application</a>
-                <a href="#apply" onClick={(e) => navigateTo('apply', e)} className="inline-flex justify-center items-center rounded-2xl border border-white/20 px-6 py-3 font-semibold hover:bg-white/10">Download syllabus</a>
+                <a onClick={() => navigateTo('apply')} className="inline-flex justify-center items-center rounded-2xl bg-white text-neutral-900 px-6 py-3 font-semibold shadow-lg shadow-white/10 hover:bg-white/90">Start application</a>
+                <a onClick={() => navigateTo('apply')} className="inline-flex justify-center items-center rounded-2xl border border-white/20 px-6 py-3 font-semibold hover:bg-white/10">Download syllabus</a>
               </div>
               <p className="mt-4 text-xs text-white/60">Cohort starts {eventDate.start} • Limited seats • No design background required</p>
             </div>
             <div className="relative">
               <div className="aspect-[4/3] rounded-3xl bg-gradient-to-br from-neutral-800 to-neutral-900 border border-white/10 p-1">
-                <div className="h-full w-full rounded-3xl bg-neutral-950/40 grid place-items-center text-center px-6">
-                  <div>
-                    <div>
-                      video here...
-                    </div>
-                    <div className="mt-6 flex justify-center flex-wrap gap-2">
+                <div className="h-full w-full rounded-3xl bg-neutral-950/40 overflow-hidden relative">
+                  <video
+                    src={introVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="h-[85%] aspect-ratio[4/2]"
+                    // className="w-full h-[85%] object-cover"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-neutral-950/80 to-transparent">
+                    <div className="flex justify-center flex-wrap gap-2">
                       {
                         applicationTools.map(({ label, value }) => (
                           <span key={value} className="rounded-xl bg-white/5 px-3 py-1 text-xs border border-white/10">{label}</span>
@@ -449,20 +449,20 @@ export default function DesignXStudentLanding() {
           <h2 className="text-3xl md:text-4xl font-extrabold">Your design career starts now</h2>
           <p className="mt-3 text-white/80">Join the {eventDate.start} cohort and build a portfolio that opens doors.</p>
           <div className="mt-6 flex items-center justify-center gap-3">
-            <a href="#apply" onClick={(e) => navigateTo('apply', e)} className="inline-flex justify-center items-center rounded-2xl bg-white text-neutral-900 px-6 py-3 font-semibold hover:bg-white/90">Apply now</a>
-            <a href="#apply" onClick={(e) => navigateTo('apply', e)} className="inline-flex justify-center items-center rounded-2xl border border-white/20 px-6 py-3 font-semibold hover:bg-white/10">Get syllabus</a>
+            <a href="#apply" className="inline-flex justify-center items-center rounded-2xl bg-white text-neutral-900 px-6 py-3 font-semibold hover:bg-white/90">Apply now</a>
+            <a href="#syllabus" className="inline-flex justify-center items-center rounded-2xl border border-white/20 px-6 py-3 font-semibold hover:bg-white/10">Get syllabus</a>
           </div>
         </div>
       </section>
 
-      {/* <div className="flex justify-center items-center my-10">
+      <div className="flex justify-center items-center my-10">
         <div className="relative">
         <InstagramEmbed />
         <div className="chatgpt-icon absolute bottom-[5px] right-[-50px]">
           <ChatGptIcon />
         </div>
         </div>
-      </div> */}
+      </div>
 
       
       <footer className="border-t border-white/10 bg-neutral-950/80" id="footer">
