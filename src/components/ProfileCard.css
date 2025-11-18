@@ -106,6 +106,8 @@
 }
 
 .pc-shine {
+  /* TODO: hide shine effect */
+  display: none;
   mask-image: var(--icon);
   mask-mode: luminance;
   mask-repeat: repeat;
