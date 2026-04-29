@@ -59,10 +59,10 @@ export default function DesignXStudentLanding() {
     return pricePlan === "full"
       ? { label: "Full Pay", amount: "₹24,999", sub: "Save ₹5,000 vs EMI" }
       : {
-          label: "EMI (3 x)",
-          amount: "₹9,999 / mo",
-          sub: "Instant approval on UPI cards",
-        };
+        label: "EMI (3 x)",
+        amount: "₹9,999 / mo",
+        sub: "Instant approval on UPI cards",
+      };
   }, [pricePlan]);
 
   useEffect(() => {
@@ -144,13 +144,13 @@ export default function DesignXStudentLanding() {
 
       response.status === 201
         ? setSubmitStatus({
-            type: "success",
-            message: "Thanks! We'll reach out in 24 hours.",
-          })
+          type: "success",
+          message: "Thanks! We'll reach out in 24 hours.",
+        })
         : setSubmitStatus({
-            type: "error",
-            message: "Something went wrong. Please try again.",
-          });
+          type: "error",
+          message: "Something went wrong. Please try again.",
+        });
 
       form.reset();
       const dayTypeSelect = form.elements.namedItem(
@@ -269,7 +269,7 @@ export default function DesignXStudentLanding() {
                     playsInline
                     className="h-[85%] introduction-video"
                     id="video-player"
-                    // className="w-full h-[85%] object-cover"
+                  // className="w-full h-[85%] object-cover"
                   >
                     Your browser does not support the video tag.
                   </video>
@@ -601,11 +601,10 @@ export default function DesignXStudentLanding() {
                   <p
                     role="status"
                     aria-live="polite"
-                    className={`text-xs ${
-                      submitStatus.type === "success"
-                        ? "text-emerald-300"
-                        : "text-rose-300"
-                    }`}
+                    className={`text-xs ${submitStatus.type === "success"
+                      ? "text-emerald-300"
+                      : "text-rose-300"
+                      }`}
                   >
                     {submitStatus.message}
                   </p>
