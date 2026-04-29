@@ -1,5 +1,6 @@
+"use client";
+
 import { useRef, useEffect, useState, useMemo, useId, FC, PointerEvent } from 'react';
-import './CurvedLoop.css';
 
 interface CurvedLoopProps {
   marqueeText?: string;
