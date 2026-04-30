@@ -4,14 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "netlify:dev": "netlify dev",
-    "netlify:deploy": "netlify deploy",
-    "netlify:deploy:prod": "netlify deploy --prod",
-    "netlify:build": "npm run build && netlify deploy --prod"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "axios": "^1.13.2",
@@ -21,8 +16,9 @@
     "express": "^5.1.0",
     "lucide-react": "^0.552.0",
     "mongoose": "^8.7.0",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
+    "next": "^16.2.4",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
     "serverless-http": "^3.2.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7"
@@ -39,9 +35,9 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
     "globals": "^16.4.0",
-    "netlify-cli": "^23.10.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.14",
+    "typescript": "6.0.3",
     "vite": "^7.1.7"
   }
 }

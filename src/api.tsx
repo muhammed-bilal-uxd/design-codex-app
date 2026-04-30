@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const studentsUrl = import.meta.env.VITE_SHEET_DB_URL
+export const studentsUrl = process.env.NEXT_PUBLIC_SHEET_DB_URL ?? ""
 
 export const getUsers = () => axios.get(studentsUrl)
 export const addUser = (data: any) => axios.post(studentsUrl, data)

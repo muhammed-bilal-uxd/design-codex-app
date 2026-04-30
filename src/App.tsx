@@ -1,18 +1,21 @@
-import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
-import fintechImg from "./assets/fintech.jpg";
-import healthcareImg from "./assets/healthcare.jpg";
-import ecommerceImg from "./assets/ecommerce.jpg";
-import { addUser } from "./api";
-import { AxiosResponse } from "axios";
+"use client";
 
-import logoImg from "./assets/designx-dark.svg";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import { addUser } from "./api";
+import type { AxiosResponse } from "axios";
+
 import InstagramEmbed from "./shared-components/InstagramEmbered";
 import ChatGptIcon from "./shared-components/ChatGpt";
-import instagramImg from "./assets/instagram.png";
 import TeamCard from "./shared-components/TeamCard";
 import AluminiCompany from "./shared-components/AluminiCompany";
-import introVideo from "./assets/video/introduction.mp4";
-import favIcon from "./assets/favicon.ico";
+import Image from "next/image";
+
+const fintechImg = "/assets/fintech.jpg";
+const healthcareImg = "/assets/healthcare.jpg";
+const ecommerceImg = "/assets/ecommerce.jpg";
+const logoImg = "/assets/designx-dark.svg";
+const instagramImg = "/assets/instagram.png";
+const introVideo = "/assets/video/introduction.mp4";
 
 // const VITE_API_URL = import.meta.env.VITE_API_URL
 
@@ -56,10 +59,10 @@ export default function DesignXStudentLanding() {
     return pricePlan === "full"
       ? { label: "Full Pay", amount: "₹24,999", sub: "Save ₹5,000 vs EMI" }
       : {
-          label: "EMI (3 x)",
-          amount: "₹9,999 / mo",
-          sub: "Instant approval on UPI cards",
-        };
+        label: "EMI (3 x)",
+        amount: "₹9,999 / mo",
+        sub: "Instant approval on UPI cards",
+      };
   }, [pricePlan]);
 
   useEffect(() => {
@@ -141,13 +144,13 @@ export default function DesignXStudentLanding() {
 
       response.status === 201
         ? setSubmitStatus({
-            type: "success",
-            message: "Thanks! We'll reach out in 24 hours.",
-          })
+          type: "success",
+          message: "Thanks! We'll reach out in 24 hours.",
+        })
         : setSubmitStatus({
-            type: "error",
-            message: "Something went wrong. Please try again.",
-          });
+          type: "error",
+          message: "Something went wrong. Please try again.",
+        });
 
       form.reset();
       const dayTypeSelect = form.elements.namedItem(
@@ -173,7 +176,14 @@ export default function DesignXStudentLanding() {
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/70 bg-neutral-950/90 border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src={logoImg} className="w-30" />
+            <Image
+              src={logoImg}
+              alt="DesignX Skool"
+              width={120}
+              height={48}
+              className="w-30 h-auto"
+              priority
+            />
             {/* <span className="font-semibold tracking-tight">DesignX Skool</span> */}
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm text-white/80">
@@ -259,7 +269,7 @@ export default function DesignXStudentLanding() {
                     playsInline
                     className="h-[85%] introduction-video"
                     id="video-player"
-                    // className="w-full h-[85%] object-cover"
+                  // className="w-full h-[85%] object-cover"
                   >
                     Your browser does not support the video tag.
                   </video>
@@ -438,8 +448,14 @@ export default function DesignXStudentLanding() {
                 key={t}
                 className="rounded-2xl border border-white/10 bg-neutral-900 p-6"
               >
-                <div className="aspect-[16/10] rounded-xl bg-neutral-800 border border-white/5">
-                  <img src={img} className="w-full h-full [object-fit:cover]" />
+                <div className="relative aspect-[16/10] rounded-xl bg-neutral-800 border border-white/5 overflow-hidden">
+                  <Image
+                    src={img}
+                    alt={t}
+                    fill
+                    sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
+                    className="object-cover"
+                  />
                 </div>
                 <h3 className="mt-4 font-semibold">{t}</h3>
                 <p className="text-sm text-white/70 mt-1">{d}</p>
@@ -585,11 +601,10 @@ export default function DesignXStudentLanding() {
                   <p
                     role="status"
                     aria-live="polite"
-                    className={`text-xs ${
-                      submitStatus.type === "success"
-                        ? "text-emerald-300"
-                        : "text-rose-300"
-                    }`}
+                    className={`text-xs ${submitStatus.type === "success"
+                      ? "text-emerald-300"
+                      : "text-rose-300"
+                      }`}
                   >
                     {submitStatus.message}
                   </p>
@@ -815,9 +830,11 @@ export default function DesignXStudentLanding() {
                 href="https://www.instagram.com/designx_india/"
                 className="flex items-center"
               >
-                <img
+                <Image
                   src={instagramImg}
                   alt="Instagram"
+                  width={20}
+                  height={20}
                   className="w-[20px] h-[20px]"
                 />
                 <span className="ml-[5px]">Instagram</span>
